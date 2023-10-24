@@ -10,7 +10,6 @@ import subprocess
 from subprocess import Popen, PIPE
 from threading import Thread
 import helper
-from numpy import full
 import time
 
 root = Tk()
@@ -57,7 +56,7 @@ def Convert():
             split = os.path.splitext(path)
             if split[1] == ".ts":
                 fullPath = f"{dir}/{path}"
-                subprocess.call(f"ffmpeg -y -i \"{fullPath}\" -c copy \"{folder_path_output.get()}/{split[0]}.mkv\"", shell=True)
+                subprocess.call(f"ffmpeg.exe -y -i \"{fullPath}\" -c copy \"{folder_path_output.get()}/{split[0]}.mkv\"", shell=True)
                 proses += 1
                 status.set(f"Converting ({proses}/{count})")
                 global stop
